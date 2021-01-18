@@ -1,0 +1,37 @@
+.container {
+  margin-top: 32px;
+}
+
+.footer {
+  padding-bottom: 64px;
+  font-size: 12px;
+}
+
+.issues.list {
+  margin-top: 16px;
+}
+
+.app {
+  min-height: 700px;
+}
+
+.pagination.grid {
+  margin-top: 16px;
+}
+
+.route.container{
+  min-height: 500px
+}
+
+.search-bar{
+  width: 400px;
+}
+
+.repo.result.info{
+  padding-right: 10px;
+}
+
+.issue.avatar.image{
+  width: 20px;
+  height: 20px;
+}
