@@ -5,9 +5,12 @@ const getGithubPage = require('./github-scrap').getGithubPage;
 const app = express();
 const cors = require('cors');
 const PORT = process.env.PORT || 3001;
+const dotenv = require('dotenv');
+dotenv.config();
 
 app.use(express.json());
 app.use(cors());
+app.use('/auth', require('./auth'));
 
 app.get('/github', async (req, res) => {
   const repo = req.query.repo || '';

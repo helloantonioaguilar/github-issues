@@ -4,10 +4,11 @@ import github from '../api/github';
 import RepoResult from '../components/layout/RepoResult';
 import history from '../history';
 import Paginator from '../components/layout/Paginator';
+// import PropTypes from 'prop-types';
 
 const REPOS_PER_PAGE = 10;
 
-const Search = () => {
+const Search = props => {
   const query = useQuery();
   const q = query.get('q');
   const page = Number(query.get('page')) || 1;
@@ -19,7 +20,6 @@ const Search = () => {
   const searchRepos = async () => {
     setLoading(true);
     if (q) {
-      // eslint-disable-next-line camelcase
       const {
         data: { total_count: totalCount, items }
       } = await github.get('/search/repositories', {
@@ -61,6 +61,7 @@ const Search = () => {
   );
 };
 
-Search.propTypes = {};
+Search.propTypes = {
+};
 
 export default Search;

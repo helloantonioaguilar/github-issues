@@ -11,7 +11,7 @@ const RepoSearch = ({ repo }) => {
         <i className="book icon"></i>
         {/* <a href="#">{repo.full_name}</a> */}
         <Link to={`/${repo.owner.login}/${repo.name}/issues?q=is:open+is:issue`}>
-          {repo.full_name}
+          {repo.full_name} {repo.private ? <div className="ui tag label red">Private</div> : null}
         </Link>
       </h4>
       {repo.description

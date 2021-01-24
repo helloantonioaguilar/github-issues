@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
-import repoReducer from './repoReducer';
+import authReducer from './authReducer';
 
 export default combineReducers({
   todo: () => { return {}; },
-  github: repoReducer
+  auth: authReducer
 });

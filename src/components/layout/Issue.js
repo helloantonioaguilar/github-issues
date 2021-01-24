@@ -12,8 +12,7 @@ const Issue = ({ issue }) => {
         <div className="content">
           <h5>{issue.title}</h5>
           <div className="sub header">
-            #{issue.number} opened {moment(issue.created_at).fromNow()} ago by
-            {issue.user.login}
+            #{issue.number} opened {moment(issue.created_at).fromNow()} ago by {issue.user.login}
           </div>
         </div>
       </td>

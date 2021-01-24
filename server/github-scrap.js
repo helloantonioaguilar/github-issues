@@ -9,7 +9,7 @@ const getGithubPage = async (repoName) => {
   } catch (e) {
     return null;
   }
-}
+};
 
 const getDependents = ($) => {
   const payload = {
@@ -36,7 +36,9 @@ const getDependents = ($) => {
         owner: el.attribs.alt
       });
     }
-  } catch (e) {}
+  } catch (e) {
+    // console.log(e.message, e);
+  }
   return payload;
 };
 
@@ -65,7 +67,9 @@ const getContributors = ($) => {
         owner: el.attribs.alt
       });
     }
-  } catch (e) {}
+  } catch (e) {
+    // console.log(e.message, e);
+  }
   return payload;
 };
 

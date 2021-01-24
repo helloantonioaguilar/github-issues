@@ -7,6 +7,7 @@ import github from '../api/github';
 import PropTypes from 'prop-types';
 import useQuery from '../hooks/useQuery';
 import RepositoryInfo from '../components/layout/RepositoryInfo';
+import history from '../history';
 
 const RepositoryIssues = ({ match }) => {
   const [repository, setRepository] = useState(null);
@@ -15,11 +16,15 @@ const RepositoryIssues = ({ match }) => {
   const filter = query.get('q') || 'is:open+is:issue';
 
   useEffect(async () => {
-    const {
-      params: { owner, repo }
-    } = match;
-    const { data } = await github.get(`/repos/${owner}/${repo}`);
-    setRepository(data);
+    try {
+      const {
+        params: { owner, repo }
+      } = match;
+      const { data } = await github.get(`/repos/${owner}/${repo}`);
+      setRepository(data);
+    } catch (e) {
+      history.push('/');
+    }
   }, []);
 
   return (

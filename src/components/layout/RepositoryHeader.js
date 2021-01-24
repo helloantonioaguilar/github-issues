@@ -48,6 +48,7 @@ const RepositoryHeader = ({ repo }) => {
             </Link>
             /
             <a href="#">{repo.name}</a>
+            {repo.private ? <div className="ui label">Private</div> : null}
           </h3>
         </div>
       </div>

@@ -1,11 +1,18 @@
 import axios from 'axios';
 
+const token = process.env.REACT_ACCESS_TOKEN;
 const github = axios.create({
   baseURL: 'https://api.github.com',
   headers: {
-    Accept: 'application/vnd.github.v3+json',
-    Authorization: 'token 9c75a7551627c3432697275369c9cd9302681bc2'
+    accept: 'application/vnd.github.v3+json',
+    authorization: `token ${token}`
   }
+});
+
+github.interceptors.request.use((config) => {
+  const token = localStorage.getItem('token') || process.env.REACT_APP_ACCESS_TOKEN;
+  config.headers.authorization = `token ${token}`;
+  return config;
 });
 
 export default github;
